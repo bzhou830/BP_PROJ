@@ -42,6 +42,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "./cs1237/cs1237.h"
+#include "./pwm/pwm.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -109,7 +110,7 @@ int main(void)
   MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
-
+    pwm_output_start(PWM_1);
   /* USER CODE END 2 */
 
   /* Infinite loop */

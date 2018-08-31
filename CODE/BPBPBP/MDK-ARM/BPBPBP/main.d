@@ -27,3 +27,5 @@ bpbpbp\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 bpbpbp\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 bpbpbp\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 bpbpbp\main.o: ..\Drivers\USER\./cs1237/cs1237.h
+bpbpbp\main.o: ..\Drivers\USER\./platform/platform.h
+bpbpbp\main.o: ..\Drivers\USER\./pwm/pwm.h

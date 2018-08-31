@@ -377,9 +377,6 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>::CMSIS</GroupName>
-        </Group>
-        <Group>
           <GroupName>Application/User</GroupName>
           <Files>
             <File>
@@ -508,6 +505,54 @@
               <FilePath>..\Drivers\USER\cs1237\cs1237.h</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>User/flash</GroupName>
+          <Files>
+            <File>
+              <FileName>flash_dev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\USER\flash\flash_dev.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash_dev.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Drivers\USER\flash\flash_dev.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>User/delay</GroupName>
+          <Files>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\USER\delay\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Drivers\USER\delay\delay.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>User/pwm</GroupName>
+          <Files>
+            <File>
+              <FileName>pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\USER\pwm\pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Drivers\USER\pwm\pwm.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>

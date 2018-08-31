@@ -18,6 +18,9 @@
 "bpbpbp\stm32f1xx_hal_rcc_ex.o"
 "bpbpbp\system_stm32f1xx.o"
 "bpbpbp\cs1237.o"
+"bpbpbp\flash_dev.o"
+"bpbpbp\delay.o"
+"bpbpbp\pwm.o"
 --library_type=microlib --strict --scatter "BPBPBP\BPBPBP.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

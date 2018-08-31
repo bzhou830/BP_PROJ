@@ -1,5 +1,6 @@
 bpbpbp\cs1237.o: ..\Drivers\USER\cs1237\cs1237.c
 bpbpbp\cs1237.o: ..\Drivers\USER\cs1237\cs1237.h
+bpbpbp\cs1237.o: ..\Drivers\USER\./platform/platform.h
 bpbpbp\cs1237.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 bpbpbp\cs1237.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 bpbpbp\cs1237.o: ../Drivers/CMSIS/Include/core_cm3.h
