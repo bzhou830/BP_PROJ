@@ -1,4 +1,5 @@
 bpbpbp\pwm.o: ..\Drivers\USER\pwm\pwm.c
+bpbpbp\pwm.o: ..\Drivers\USER\wholeconfig.h
 bpbpbp\pwm.o: ..\Drivers\USER\pwm\pwm.h
 bpbpbp\pwm.o: ..\Drivers\USER\./platform/platform.h
 bpbpbp\pwm.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h

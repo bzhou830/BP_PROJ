@@ -1,6 +1,7 @@
 /**
 *@brief pwm functions file
 */
+#include "wholeconfig.h"
 #include "pwm.h"
 
 extern TIM_HandleTypeDef htim1;
@@ -105,6 +106,29 @@ int deflate_control(uint8_t percent)
 		control_index = DEFLATE_CHL;
 	}
 	return pwm_set_duty_ratio(DEFLATE_CHL, percent);
+}
+
+static uint32_t pwm_p = 5;
+
+void inflate_control_b(uint32_t p)
+{
+    pwm_p = p;
+}
+
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    static uint32_t p_count = 0;
+    p_count++;
+    if(p_count == pwm_p)
+    {
+        HAL_GPIO_WritePin(PWM_PORT, PWM_PIN, GPIO_PIN_RESET);
+    }
+    else if(p_count > 10)
+    {
+        HAL_GPIO_WritePin(PWM_PORT, PWM_PIN, GPIO_PIN_SET);
+        p_count = 0;
+    }
 }
 
 

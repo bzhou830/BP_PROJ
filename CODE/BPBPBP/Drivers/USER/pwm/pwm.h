@@ -37,6 +37,7 @@ void pwm_output_stop(uint8_t n);
 int inflate_control(uint8_t percent);
 int deflate_control(uint8_t percent);
 
+void inflate_control_b(uint32_t p);
 #endif
 
 

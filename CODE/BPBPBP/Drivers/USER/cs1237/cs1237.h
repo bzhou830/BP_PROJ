@@ -15,7 +15,7 @@ enum
 
 
 
-void cs1237_RdDataTest(void);
+uint32_t cs1237_RdDataTest(void);
 
 
 #endif

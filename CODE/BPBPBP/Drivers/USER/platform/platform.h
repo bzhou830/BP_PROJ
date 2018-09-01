@@ -19,8 +19,20 @@
 #define FLASH_MISO_PIN  GPIO_PIN_4
 
 
-#define INFLATE_CHL    PWM_2
-#define DEFLATE_CHL    PWM_1
+#define K_PORT          GPIOB
+#define K1_PIN          GPIO_PIN_15
+#define K2_PIN          GPIO_PIN_14
+#define K3_PIN          GPIO_PIN_13
+#define K4_PIN          GPIO_PIN_12
+
+
+
+#define PWM_PORT        GPIOE
+#define PWM_PIN         GPIO_PIN_9
+
+
+#define INFLATE_CHL    PWM_1
+#define DEFLATE_CHL    PWM_2
 
 
 

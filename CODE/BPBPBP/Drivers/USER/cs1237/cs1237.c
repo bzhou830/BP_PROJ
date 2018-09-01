@@ -209,7 +209,7 @@ uint8_t CS1237_ReadData(uint32_t *lulData)
 /**
 *@brief test cs1237 data
 */
-void cs1237_RdDataTest(void)
+uint32_t cs1237_RdDataTest(void)
 {
 	static uint32_t lulTim = 0;
 	static uint8_t  lucStep = 0;
@@ -217,7 +217,7 @@ void cs1237_RdDataTest(void)
 	
 	if(lucStep==0)
 	{
-		if(cs1237_wrtdata(0x2C))  //0x62
+		if(cs1237_wrtdata(0x28))  //0x62
 		{
 			b_log("cs1237 init ok \n");
 			lucStep = 1;
@@ -231,25 +231,26 @@ void cs1237_RdDataTest(void)
 			{		
 				lulAdcVal = ~lulAdcVal + 1;
 				lulAdcVal &= 0x00FFFFFF;
-				b_log("cs1237:- %d\n", lulAdcVal);
+				b_log("-%d\n\r", lulAdcVal);
 			}
 			else 
 			{
 //				lulAdcVal = ~lulAdcVal + 1;
 				lulAdcVal &= 0x00FFFFFF;
-				b_log("cs1237: %d\n", lulAdcVal);
+				b_log("%d\n\r", lulAdcVal);
 			}
 			
 			lulTim = HAL_GetTick();
-		  lucStep = 2;
+            lucStep = 2;
+            return lulAdcVal;
 		}
 	}
 	else if(lucStep==2)
 	{
-		if(HAL_GetTick()-lulTim>=500)
+		if(HAL_GetTick()-lulTim>=40)
 		{
 			lucStep = 1;
 		}
 	}
-	
+	return 0;
 }
