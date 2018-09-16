@@ -128,15 +128,21 @@ int main(void)
     {
         
         pwm_flag = 0x1;
-    }      
+    }
+    else if(key_value == BUTTON_K2)
+    {
+        inflate_control_b(80);
+        pwm_flag = 0;
+    }
     ad_value = cs1237_RdDataTest();
-    if(ad_value > 6000000 && pwm_flag == 0)
+    if(ad_value > 1500000 && pwm_flag == 0)
     {
 //        pwm_output_stop(PWM_1);
-          inflate_control_b(3);
+          inflate_control_b(30);
 //        pwm_output_start(PWM_1);
         pwm_flag = 1;
     }  
+    
   }
   /* USER CODE END 3 */
 
@@ -198,9 +204,9 @@ static void MX_TIM1_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 72;
+  htim1.Init.Prescaler = 36;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 100-1;
+  htim1.Init.Period = 20;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;

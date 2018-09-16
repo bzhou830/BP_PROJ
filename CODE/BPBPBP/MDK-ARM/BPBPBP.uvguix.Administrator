@@ -11,17 +11,17 @@
     <View>
       <WinId>38003</WinId>
       <ViewName>Registers</ViewName>
-      <TableColWidths>115 209</TableColWidths>
+      <TableColWidths>115 45</TableColWidths>
     </View>
     <View>
       <WinId>346</WinId>
       <ViewName>Code Coverage</ViewName>
-      <TableColWidths>665 353</TableColWidths>
+      <TableColWidths>665 160</TableColWidths>
     </View>
     <View>
       <WinId>204</WinId>
       <ViewName>Performance Analyzer</ViewName>
-      <TableColWidths>825 123 123 100</TableColWidths>
+      <TableColWidths>825</TableColWidths>
     </View>
   </SECTreeCtrl>
 
@@ -1394,7 +1394,7 @@
         <RecentRowIndex>0</RecentRowIndex>
         <RectRecentDocked>
           <Len>16</Len>
-          <Data>03000000820200000300000082020000</Data>
+          <Data>4A03000066000000EE0300005B010000</Data>
         </RectRecentDocked>
         <RectRecentFloat>
           <Len>16</Len>
@@ -3390,18 +3390,18 @@
       <ActiveTab>6</ActiveTab>
       <Doc>
         <Name>../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c</Name>
-        <ColumnNumber>0</ColumnNumber>
+        <ColumnNumber>3</ColumnNumber>
         <TopLine>4277</TopLine>
-        <CurrentLine>4290</CurrentLine>
+        <CurrentLine>4294</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\Drivers\USER\pwm\pwm.c</Name>
-        <ColumnNumber>21</ColumnNumber>
-        <TopLine>105</TopLine>
-        <CurrentLine>123</CurrentLine>
+        <ColumnNumber>32</ColumnNumber>
+        <TopLine>108</TopLine>
+        <CurrentLine>121</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -3426,9 +3426,9 @@
       </Doc>
       <Doc>
         <Name>../Src/main.c</Name>
-        <ColumnNumber>22</ColumnNumber>
-        <TopLine>116</TopLine>
-        <CurrentLine>132</CurrentLine>
+        <ColumnNumber>33</ColumnNumber>
+        <TopLine>122</TopLine>
+        <CurrentLine>140</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -3444,9 +3444,9 @@
       </Doc>
       <Doc>
         <Name>..\Drivers\USER\cs1237\cs1237.c</Name>
-        <ColumnNumber>9</ColumnNumber>
+        <ColumnNumber>24</ColumnNumber>
         <TopLine>229</TopLine>
-        <CurrentLine>246</CurrentLine>
+        <CurrentLine>244</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>

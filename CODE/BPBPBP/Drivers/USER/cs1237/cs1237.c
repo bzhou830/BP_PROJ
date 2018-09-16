@@ -247,7 +247,7 @@ uint32_t cs1237_RdDataTest(void)
 	}
 	else if(lucStep==2)
 	{
-		if(HAL_GetTick()-lulTim>=40)
+		if(HAL_GetTick()-lulTim >= 20)
 		{
 			lucStep = 1;
 		}
