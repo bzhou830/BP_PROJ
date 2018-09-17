@@ -209,6 +209,33 @@ uint8_t CS1237_ReadData(uint32_t *lulData)
 /**
 *@brief test cs1237 data
 */
+
+void cs1237_init()
+{
+    if(cs1237_wrtdata(0x28))  //0x62
+    {
+        b_log("cs1237 init ok \n");
+    }
+}
+
+int32_t cs1237_read()
+{
+    int32_t lulAdcVal;
+    if(CS1237_ReadData((uint32_t *)&lulAdcVal))
+    {
+        lulAdcVal &= 0x00ffffff;
+        if(lulAdcVal & 0x00800000)  
+        {		
+            lulAdcVal = ~lulAdcVal + 1;
+            lulAdcVal &= 0x00FFFFFF;
+            lulAdcVal = 0 - lulAdcVal;
+        }
+        return lulAdcVal;
+    }
+    return 0;    
+}
+
+/*
 uint32_t cs1237_RdDataTest(void)
 {
 	static uint32_t lulTim = 0;
@@ -254,3 +281,9 @@ uint32_t cs1237_RdDataTest(void)
 	}
 	return 0;
 }
+*/
+
+
+
+
+

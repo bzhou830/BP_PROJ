@@ -3,7 +3,7 @@ bpbpbp\delay.o: ..\Drivers\USER\delay\delay.h
 bpbpbp\delay.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 bpbpbp\delay.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 bpbpbp\delay.o: ../Drivers/CMSIS/Include/core_cm3.h
-bpbpbp\delay.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+bpbpbp\delay.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 bpbpbp\delay.o: ../Drivers/CMSIS/Include/core_cmInstr.h
 bpbpbp\delay.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 bpbpbp\delay.o: ../Drivers/CMSIS/Include/core_cmFunc.h
@@ -14,7 +14,7 @@ bpbpbp\delay.o: ../Inc/main.h
 bpbpbp\delay.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
 bpbpbp\delay.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 bpbpbp\delay.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
-bpbpbp\delay.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+bpbpbp\delay.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 bpbpbp\delay.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 bpbpbp\delay.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 bpbpbp\delay.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h

@@ -44,6 +44,7 @@
 #include "./cs1237/cs1237.h"
 #include "./pwm/pwm.h"
 #include "./key/key.h"
+#include "wholeconfig.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -78,6 +79,32 @@ static void MX_USART1_UART_Init(void);
 
 /* USER CODE BEGIN 0 */
 
+#define MSP_40mmHg_AD   ((uint32_t)(40 * 0.3 * 64 * 8388607 / 3300))
+#define MSP_160mmHg_AD   ((uint32_t)(160 * 0.3 * 64 * 8388607 / 3300))
+#define SAMPLE_CYCLE_MS    20
+
+int32_t msp_calculate_off()
+{
+    int32_t off = 0, i;
+    int tmp = 0;
+    int max = 0,min = -1;
+    for(i = 0;i < 100;i++)
+    {
+        tmp = cs1237_read();
+        if(tmp > max)
+        {
+            max = tmp;
+        }
+        else if(tmp < min)
+        {
+            min = tmp;
+        }
+        off += tmp;
+        HAL_Delay(10);
+    }
+    off = (off - max - min) / 98;
+    return off;
+}
 /* USER CODE END 0 */
 
 int main(void)
@@ -85,8 +112,10 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
     uint8_t key_value;
-    uint32_t ad_value = 0;
+    int32_t ad_value = 0;
     uint8_t pwm_flag = 0;
+    uint32_t lulTim = 0;
+    int msp_off = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -112,36 +141,44 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
     //pwm_output_start(PWM_1);
+    inflate_control_b(0);
     HAL_GPIO_WritePin(PWM_PORT, PWM_PIN, GPIO_PIN_RESET);
     HAL_TIM_Base_Start_IT(&htim1);
+    cs1237_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  lulTim = HAL_GetTick();
   while (1)
   {
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
     key_value = k_read();
-    if(key_value == BUTTON_K1 && pwm_flag == 0x0)
+    if(key_value == BUTTON_K2)
     {
-        
-        pwm_flag = 0x1;
-    }
-    else if(key_value == BUTTON_K2)
-    {
+        msp_off = msp_calculate_off();
         inflate_control_b(80);
         pwm_flag = 0;
     }
-    ad_value = cs1237_RdDataTest();
-    if(ad_value > 1500000 && pwm_flag == 0)
+    
+    if(HAL_GetTick() - lulTim >= SAMPLE_CYCLE_MS)
     {
-//        pwm_output_stop(PWM_1);
-          inflate_control_b(30);
-//        pwm_output_start(PWM_1);
+        ad_value = cs1237_read();
+        b_log("%d\n\r", ad_value);
+        lulTim = HAL_GetTick();
+    }
+   
+    if(ad_value > (MSP_40mmHg_AD + msp_off) && pwm_flag == 0)
+    {
+        inflate_control_b(30);
         pwm_flag = 1;
-    }  
+    } 
+    else if(ad_value > (MSP_160mmHg_AD + msp_off)) 
+    {
+        inflate_control_b(0);
+    }
     
   }
   /* USER CODE END 3 */
