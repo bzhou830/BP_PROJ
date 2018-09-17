@@ -5,7 +5,7 @@ bpbpbp\pwm.o: ..\Drivers\USER\./platform/platform.h
 bpbpbp\pwm.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 bpbpbp\pwm.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 bpbpbp\pwm.o: ../Drivers/CMSIS/Include/core_cm3.h
-bpbpbp\pwm.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+bpbpbp\pwm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 bpbpbp\pwm.o: ../Drivers/CMSIS/Include/core_cmInstr.h
 bpbpbp\pwm.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 bpbpbp\pwm.o: ../Drivers/CMSIS/Include/core_cmFunc.h
@@ -16,7 +16,7 @@ bpbpbp\pwm.o: ../Inc/main.h
 bpbpbp\pwm.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
 bpbpbp\pwm.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 bpbpbp\pwm.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
-bpbpbp\pwm.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+bpbpbp\pwm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 bpbpbp\pwm.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 bpbpbp\pwm.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 bpbpbp\pwm.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h

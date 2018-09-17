@@ -80,8 +80,8 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN 0 */
 
 #define MSP_40mmHg_AD   ((uint32_t)(40 * 0.3 * 64 * 8388607 / 3300))
-#define MSP_160mmHg_AD   ((uint32_t)(160 * 0.3 * 64 * 8388607 / 3300))
-#define SAMPLE_CYCLE_MS    20
+#define MSP_160mmHg_AD   ((uint32_t)(140 * 0.3 * 64 * 8388607 / 3300))
+#define SAMPLE_CYCLE_MS    50
 
 int32_t msp_calculate_off()
 {
@@ -141,7 +141,7 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
     //pwm_output_start(PWM_1);
-    inflate_control_b(0);
+    inflate_control_b(25);
     HAL_GPIO_WritePin(PWM_PORT, PWM_PIN, GPIO_PIN_RESET);
     HAL_TIM_Base_Start_IT(&htim1);
     cs1237_init();
@@ -177,7 +177,7 @@ int main(void)
     } 
     else if(ad_value > (MSP_160mmHg_AD + msp_off)) 
     {
-        inflate_control_b(0);
+        inflate_control_b(27);
     }
     
   }

@@ -108,7 +108,7 @@ int deflate_control(uint8_t percent)
 	return pwm_set_duty_ratio(DEFLATE_CHL, percent);
 }
 
-static uint32_t pwm_p = 50;
+volatile static uint32_t pwm_p = 50;
 
 void inflate_control_b(uint32_t p)
 {

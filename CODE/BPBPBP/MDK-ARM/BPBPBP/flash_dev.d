@@ -1,7 +1,7 @@
 bpbpbp\flash_dev.o: ..\Drivers\USER\flash\flash_dev.c
 bpbpbp\flash_dev.o: ..\Drivers\USER\wholeconfig.h
 bpbpbp\flash_dev.o: ..\Drivers\USER\flash\flash_dev.h
-bpbpbp\flash_dev.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+bpbpbp\flash_dev.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 bpbpbp\flash_dev.o: ..\Drivers\USER\./platform/platform.h
 bpbpbp\flash_dev.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 bpbpbp\flash_dev.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
@@ -16,7 +16,7 @@ bpbpbp\flash_dev.o: ../Inc/main.h
 bpbpbp\flash_dev.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
 bpbpbp\flash_dev.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 bpbpbp\flash_dev.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
-bpbpbp\flash_dev.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+bpbpbp\flash_dev.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 bpbpbp\flash_dev.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 bpbpbp\flash_dev.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 bpbpbp\flash_dev.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
