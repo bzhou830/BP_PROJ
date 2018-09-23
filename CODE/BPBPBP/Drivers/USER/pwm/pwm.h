@@ -27,7 +27,6 @@ typedef struct
 
 
 
-
 /**
 *@brief functions
 */
@@ -38,6 +37,9 @@ int inflate_control(uint8_t percent);
 int deflate_control(uint8_t percent);
 
 void inflate_control_b(uint32_t p);
+void inflate_init(void);
+void led_control(uint8_t n);
+void deflate_onoff(uint8_t n);
 #endif
 
 

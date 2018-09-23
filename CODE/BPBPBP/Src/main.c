@@ -141,8 +141,8 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
     //pwm_output_start(PWM_1);
+    inflate_init();
     inflate_control_b(25);
-    HAL_GPIO_WritePin(PWM_PORT, PWM_PIN, GPIO_PIN_RESET);
     HAL_TIM_Base_Start_IT(&htim1);
     cs1237_init();
   /* USER CODE END 2 */
@@ -150,6 +150,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   lulTim = HAL_GetTick();
+  deflate_onoff(0);
   while (1)
   {
   /* USER CODE END WHILE */
@@ -158,9 +159,15 @@ int main(void)
     key_value = k_read();
     if(key_value == BUTTON_K2)
     {
+        deflate_onoff(0);
         msp_off = msp_calculate_off();
         inflate_control_b(80);
         pwm_flag = 0;
+    }
+    else if(key_value == BUTTON_K1)
+    {
+        inflate_control_b(0);
+        deflate_onoff(1);
     }
     
     if(HAL_GetTick() - lulTim >= SAMPLE_CYCLE_MS)
@@ -172,12 +179,14 @@ int main(void)
    
     if(ad_value > (MSP_40mmHg_AD + msp_off) && pwm_flag == 0)
     {
+        led_control(1);
         inflate_control_b(30);
         pwm_flag = 1;
     } 
     else if(ad_value > (MSP_160mmHg_AD + msp_off)) 
     {
-        inflate_control_b(27);
+        inflate_control_b(0);
+        led_control(0);
     }
     
   }
@@ -241,9 +250,9 @@ static void MX_TIM1_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 36;
+  htim1.Init.Prescaler = 36 - 1;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 20;
+  htim1.Init.Period = 20 - 1;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
@@ -300,12 +309,16 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_Pin|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_4, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOE, GPIO_PIN_9|GPIO_PIN_11, GPIO_PIN_RESET);
@@ -314,11 +327,17 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOD, DOUT_Pin|SCLK_Pin|CS_Pin|FCLK_Pin 
                           |MOSI_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LED_Pin */
-  GPIO_InitStruct.Pin = LED_Pin;
+  /*Configure GPIO pins : LED_Pin PA5 PA6 PA7 */
+  GPIO_InitStruct.Pin = LED_Pin|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PC4 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PE9 PE11 */
   GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_11;

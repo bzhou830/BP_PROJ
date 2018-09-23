@@ -115,18 +115,61 @@ void inflate_control_b(uint32_t p)
     pwm_p = p;
 }
 
+void inflate_init()
+{
+    HAL_GPIO_WritePin(PWM_PORT, INFLATE_B, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(PWM_PORT, INFLATE_A, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(LED_PORT, LED_1_PIN, GPIO_PIN_SET);
+    
+    HAL_GPIO_WritePin(MOTO_INFLATE_PORT, MOTO_OUT4_P, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(MOTO_INFLATE_PORT, MOTO_OUT3_N, GPIO_PIN_RESET);   
+    HAL_GPIO_WritePin(MOTO_INFLATE_PORT, MOTO_OUT2_N, GPIO_PIN_RESET); 
+    HAL_GPIO_WritePin(MOTO_DEFLATE_PORT, MOTO_OUT1_P, GPIO_PIN_SET);     
+}
+
+void led_control(uint8_t n)
+{
+    if(n)
+    {
+        HAL_GPIO_WritePin(LED_PORT, LED_1_PIN, GPIO_PIN_RESET);
+    }
+    else
+    {
+        HAL_GPIO_WritePin(LED_PORT, LED_1_PIN, GPIO_PIN_SET);
+    }
+}
+
+
+void deflate_onoff(uint8_t n)
+{
+    if(n)
+    {
+        HAL_GPIO_WritePin(MOTO_DEFLATE_PORT, MOTO_OUT1_P, GPIO_PIN_RESET); 
+    }
+    else
+    {
+        HAL_GPIO_WritePin(MOTO_DEFLATE_PORT, MOTO_OUT1_P, GPIO_PIN_SET);  
+    }
+}
+
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     static uint32_t p_count = 0;
     p_count++;
+    
+    if(pwm_p == 0)
+    {
+        p_count = 0;
+    }
+    
     if(p_count == pwm_p)
     {
-        HAL_GPIO_WritePin(PWM_PORT, PWM_PIN, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(MOTO_INFLATE_PORT, MOTO_OUT4_P, GPIO_PIN_RESET);
     }
     else if(p_count > 100)
     {
-        HAL_GPIO_WritePin(PWM_PORT, PWM_PIN, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(MOTO_INFLATE_PORT, MOTO_OUT4_P, GPIO_PIN_SET);
         p_count = 0;
     }
 }

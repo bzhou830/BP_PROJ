@@ -28,7 +28,22 @@
 
 
 #define PWM_PORT        GPIOE
-#define PWM_PIN         GPIO_PIN_9
+#define INFLATE_B       GPIO_PIN_9
+#define INFLATE_A       GPIO_PIN_11
+
+
+
+#define MOTO_INFLATE_PORT        GPIOA
+#define MOTO_OUT4_P       GPIO_PIN_5
+#define MOTO_OUT3_N       GPIO_PIN_6
+#define MOTO_OUT2_N       GPIO_PIN_7
+
+#define MOTO_DEFLATE_PORT        GPIOC
+#define MOTO_OUT1_P       GPIO_PIN_4
+
+
+#define LED_PORT        GPIOA
+#define LED_1_PIN       GPIO_PIN_3
 
 
 #define INFLATE_CHL    PWM_1
